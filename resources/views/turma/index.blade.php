@@ -20,14 +20,14 @@
         <table id="" class="display" >
         <thead>
             <tr>
-                <th scope="col">Nome da Escola</th>
+                <th scope="col">Nome da Turma</th>
                 <th scope="col"></th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
-        @foreach($turma as $itens)
             <tr>
+            @foreach($turma as $itens)
                 <td>{{$itens['serie_turma']}}</td>
                 <td>{{$itens['cnpj']}}</td>
                 <td class="action-buttons">

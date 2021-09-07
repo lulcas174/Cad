@@ -18,7 +18,6 @@
                         <form class="requires-validation" action="{{isset($estudante->id)?url('/estudante_atualizacao/{id}'):url('/estudanteinsert')}}" method="POST">
                         @csrf
                         @method('POST')
-                      
                         <input type="hidden" id="id" name="id" value={{isset($estudante->id)?$estudante->id:''}}>
                             <div class="col-md-12">
                             <input type="text" name="nome_aluno" placeholder="Insira o nome do aluno" value={{isset($estudante->nome_aluno)?$estudante->nome_aluno:''}}>
@@ -35,14 +34,7 @@
                             <div class="col-md-12">
                             <input type="text" name="CPF" placeholder="Insira o CPF do aluno" value="{{isset($estudante->cpf_aluno)?$estudante->cpf_aluno:''}}">
                             </div>
-                            <div class="col-md-12">
-                                <select name="" id="" class="mt-3 form-select">
-                                    <option >---Selecione a escola referente a turma---</option>
-                                    @foreach($turma as $item)
-                                    <option value="{{$item['id']}}">{{$item['serie_turma']}}</option>
-                                    @endforeach
-                        </select>
-                            </div>
+                            
                             <div class="form-button mt-3">
                                 <button id="submit" type="submit" class="btn btn-primary">Registre</button>
                             </div>

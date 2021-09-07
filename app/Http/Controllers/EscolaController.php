@@ -7,55 +7,43 @@ use App\Escola;
 use App\turma;
 class EscolaController extends Controller
 {
-    //Verificar style de sucesso e de error 
-
-    //essa função vai levar a paginação/data table
    public function index(){
-       $escola = Escola::all();
+       $escola = escola::all();
        return view('escola.index',compact('escola'));
    }
-   //essa função vai levar ao formulário
+
    public function formRegister(){
-     
-    return view('escola.create');
+       return view('escola.create');
    }
+
    public function create(Request $request){
-        $request->validate([
-            'nome_escola'=>'required',
-            'cnpj'=>'required',
-        ]);
-        Escola::create([
-            'id'=>$request->id,
-            'nome_escola'=>$request->nome_escola,
-            'cnpj'=>$request->cnpj,
-        ]);
-    return redirect()->route('escola_index',compact('escola'));
+       escola::create([
+           'id' => $request->id,
+           'nome_escola'=>$request->nome_escola,
+           'cnpj'=> $request->cnpj,
+       ]);
+       return redirect()->route('escola_index');
    }
-   //função que chama o formulário de editar
+
    public function show($id){
-       $escola = Escola::find($id);
+       $escola = escola::find($id);
        return view('escola.create', compact('escola'));
    }
-   //função que vai chamar a atualização quando apertar o botão
-   public function update(Request $request,$id){
-        $escola = [
-            'id'=>$request->id,
-            'nome_escola'=>$request->nome_escola,
-            'cnpj'=>$request->cnpj,
+
+   public function update(Request $request, $id){
+       $escola = [
+           'id' => $request->id,
+           'nome_escola'=>$request->nome_escola,
+           'cnpj'=> $request->cnpj,
        ];
-       Escola::findOrFail($id)->update($escola);
-      
-       return redirect()->route('escola_index',compact('escola'));
+
+       escola::findOrFail($id)->update($escola);
+       return view('escola.index',compact('escola'));
    }
 
    public function delete($id){
-    Escola::where('id',$id)->delete();
-       
-    return redirect()->route('escola_index',compact('escola'));     
-   }
-   
-   public function Consultar($id){
-    $turma = turma::all();
-    return redirect()->route('turmas',compact('turma'));
+       escola::where('id',$id)->delete();
+
+       return redirect()->route('escola_index');
    }
 }
