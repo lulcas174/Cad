@@ -14,15 +14,13 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Registre a escola!</h3>
-                        <form class="requires-validation" action="{{isset($escola->id)?url('/index_atualizacao/{id}'):url('/indexinsert')}}" method="POST">
+                        <h3>Formulário da escola!</h3>
+                        <form class="requires-validation" action="{{isset($escola->id)?route('escola_atualizacao',['id'=>$escola->id]):route('escola_create')}}" method="POST">
                         @csrf
-                        @method('POST')
-                        <input type="hidden" id="id" name="id" value={{isset($escola->id)?$escola->id:''}}>
-       
-       
+                        @method('POST')           
+                        <input type="hidden" id="id" name="id" value="{{isset($escola->id)?$escola->id:''}}">
                             <div class="col-md-12">
-                            <input type="text" name="nome_escola" placeholder="Nome da escola" value={{isset($escola->nome_escola)?$escola->nome_escola:''}}>
+                            <input type="text" name="nome_escola" placeholder="Nome da escola" value="{{isset($escola->nome_escola)?$escola->nome_escola:''}}">
                             </div>
 
                             <div class="col-md-12 mb-3">

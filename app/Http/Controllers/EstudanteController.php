@@ -42,12 +42,12 @@ class EstudanteController extends Controller
             ];
             estudante::findOrFail($id)->update($estudante);
 
-        return view('estudante.index',compact('estudante'));
+        return redirect()->route('estudante_index',compact('estudante'));
     }
 
     public function delete($id){
         estudante::where('id',$id)->delete();
 
-        return redirect()->route('escola_index');
+        return redirect()->route('estudante_index');
     }
 }

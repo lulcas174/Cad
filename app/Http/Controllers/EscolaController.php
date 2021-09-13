@@ -38,7 +38,7 @@ class EscolaController extends Controller
        ];
 
        escola::findOrFail($id)->update($escola);
-       return view('escola.index',compact('escola'));
+       return redirect()->route('escola_index',compact('escola'));
    }
 
    public function delete($id){

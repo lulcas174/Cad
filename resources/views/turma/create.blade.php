@@ -15,13 +15,13 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Registre a turma!</h3>
-                        <form class="requires-validation" action="{{isset($turma->id)?url('/turma_atualizacao/'.$turma->id):url('/turmainsert')}}">
+                        <h3>Formulário da turma!</h3>
+                        <input type="hidden" id="id" name="id" value="{{isset($turma->id)?$turma->id:''}}">
+                        <form class="requires-validation" action="{{isset($turma->id)?route('turma_atualizacao',['id'=>$turma->id]):route('turma_create')}}" method="POST">
                         @csrf
                         @method('POST')
-                        <input type="hidden" id="id" name="id" value={{isset($turma->id)?$turma->id:''}}>
                             <div class="col-md-12">
-                            <input type="text" name="serie_turma" placeholder="Qual série é a turma?" value={{isset($turma->serie_turma)?$turma->serie_turma:''}}>
+                            <input type="text" name="serie_turma" placeholder="Qual série é a turma?" value="{{isset($turma->serie_turma)?$turma->serie_turma:''}}">
                             </div>
                      
                             <div class="form-button mt-3">

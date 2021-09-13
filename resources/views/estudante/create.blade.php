@@ -14,22 +14,22 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Registre a escola!</h3>
-                        <form class="requires-validation" action="{{isset($estudante->id)?url('/estudante_atualizacao/{id}'):url('/estudanteinsert')}}" method="POST">
+                        <h3>Formulário do estudante</h3>
+                        <form class="requires-validation" action="{{isset($estudante->id)?route('estudante_atualizacao',['id'=>$estudante->id]):route('estudante_create')}}" method="POST">
                         @csrf
                         @method('POST')
-                        <input type="hidden" id="id" name="id" value={{isset($estudante->id)?$estudante->id:''}}>
+                        <input type="hidden" id="id" name="id" value="{{isset($estudante->id)?$estudante->id:''}}">
                             <div class="col-md-12">
-                            <input type="text" name="nome_aluno" placeholder="Insira o nome do aluno" value={{isset($estudante->nome_aluno)?$estudante->nome_aluno:''}}>
+                            <input type="text" name="nome_aluno" placeholder="Insira o nome do aluno" value="{{isset($estudante->nome_aluno)?$estudante->nome_aluno:''}}">
                             </div>
                             <div class="col-md-12">
-                            <input type="text" name="serie_aluno" placeholder="Insira a série do aluno" value={{isset($estudante->serie_aluno)?$estudante->serie_aluno:''}}>
+                            <input type="text" name="serie_aluno" placeholder="Insira a série do aluno" value="{{isset($estudante->serie_aluno)?$estudante->serie_aluno:''}}">
                             </div>
                             <div class="col-md-12">
-                            <input type="text" name="cpf_aluno" placeholder="Insira o CPF do aluno" value={{isset($estudante->cpf_aluno)?$estudante->cpf_aluno:''}}>
+                            <input type="text" name="cpf_aluno" placeholder="Insira o CPF do aluno" value="{{isset($estudante->cpf_aluno)?$estudante->cpf_aluno:''}}">
                             </div>
                             <div class="col-md-12">
-                            <input type="text" name="idade_aluno" placeholder="Insira a idade do aluno"value={{isset($estudante->idade_aluno)?$estudante->idade_aluno:''}}>
+                            <input type="text" name="idade_aluno" placeholder="Insira a idade do aluno"value="{{isset($estudante->idade_aluno)?$estudante->idade_aluno:''}}">
                             </div>
                             <div class="col-md-12">
                             <input type="text" name="CPF" placeholder="Insira o CPF do aluno" value="{{isset($estudante->cpf_aluno)?$estudante->cpf_aluno:''}}">
@@ -37,6 +37,7 @@
                             
                             <div class="form-button mt-3">
                                 <button id="submit" type="submit" class="btn btn-primary">Registre</button>
+                             
                             </div>
                         </form>
                     </div>

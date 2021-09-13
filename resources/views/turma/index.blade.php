@@ -41,7 +41,8 @@
         
     </table>
     <a href="{{route('turma_formulario')}}" class="btn btn-primary">Novo</a>
-    <a href="{{route('estudante_index')}}" class="btn btn-secondary">Visualizar todas os alunos</a>
+    <a href="{{route('estudante_index')}}" class="btn btn-primary">Visualizar todas os alunos</a>
+    <a href="{{route('escola_index')}}" class="btn btn-warning">Visualizar todas as escolas</a>
         </div>
       </div>
     </div>

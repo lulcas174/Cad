@@ -19,10 +19,6 @@ class TurmaController extends Controller
     }
     
     public function create(Request $request){
-         $request->validate([
-             'serie_turma'=>'required',
-         ]);
-        
          turma::create([
              'id'=>$request->id,
              'serie_turma'=>$request->serie_turma,
@@ -44,8 +40,8 @@ class TurmaController extends Controller
    
          turma::findOrFail($id)->update($turma);
         // dd($turma);
-        return view('turma.index', compact('turma'));
-        // redirect()->route('turma_index',compact('turma', 'escola')
+        // return view('turma.index', compact('turma'));
+        return redirect()->route('turma_index',compact('turma'));
     }
  
     public function delete($id){

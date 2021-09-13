@@ -40,6 +40,7 @@
        
     </table>
     <a href="{{route('estudante_formulario')}}" class="btn btn-primary">Novo</a>
+    <a href="{{route('turma_index')}}" class="btn btn-warning">Voltar para as turmas</a>
         </div>
       </div>
     </div>
